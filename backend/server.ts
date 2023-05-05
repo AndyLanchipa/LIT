@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 const mongoose = require("mongoose");
 const userRoutes = require("./models/users");
 const loginRoute = require("./routes/login.ts");
