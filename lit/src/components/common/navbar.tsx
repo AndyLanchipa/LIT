@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../logo.jpg";
+import logo from "../../LITLOGO.png";
 const NavBar: React.FC = () => {
   return (
     <nav className="bg-black">
