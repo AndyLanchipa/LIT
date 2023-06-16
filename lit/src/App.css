@@ -1,3 +1,6 @@
+html {
+  background-color: black;
+}
 .App {
   text-align: center;
 }
@@ -21,7 +24,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #EDF5E1;
 }
 
 .App-link {
@@ -35,4 +38,133 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Select the links inside the NavBar */
+.nav-link {
+  color: white;
+  transition: all 0.3s ease; /* Add a transition effect for smooth animation */
+}
+
+.nav-link:hover {
+  color: #E58F65;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+  transform: scale(1.2); /* Increase the scale to create a pop-out effect */
+}
+
+.App-body {
+  margin: 20px;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contact-page h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-page__description {
+  margin-bottom: 20px;
+}
+
+.contact-page__form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: grid;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.about {
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: black;
+}
+
+.about__title {
+  font-size: 70px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #D05353;
+  font-weight: bold;
+}
+
+.about__title span {
+  color: black;
+  padding-right: 40%; /* Adjust the value as needed */
+  display: inline-block;
+}
+
+.about__title span:hover{
+  color: white;
+  transition: color 0.5s ease-in-out;
+}
+.about__title {
+  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.about__title:hover {
+  background-position: 100%;
+}
+.about__description {
+  margin-top: 10px;
+  text-align: right;
+  line-height: 1.5;
+  color: #D05353;
+}
+
+.about__description span {
+  color: black;
+  padding-left: 50%; /* Adjust the value as needed */
+  display: inline-block;
+}
+
+.about__description span:hover{
+  color: white;
+  transition: color 0.5s ease-in-out;
+}
+.about__description {
+  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-in-out;
+  background-position: 100%;
+}
+
+.about__description:hover {
+  background-position: 0%;
 }
