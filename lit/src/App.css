@@ -1,5 +1,5 @@
 html {
-  background-color: black;
+  background-color: #ffffff;
 }
 .App {
   text-align: center;
@@ -41,17 +41,7 @@ html {
 }
 
 /* Select the links inside the NavBar */
-.nav-link {
-  color: white;
-  transition: all 0.3s ease; /* Add a transition effect for smooth animation */
-}
-
-.nav-link:hover {
-  color: #E58F65;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
-  transform: scale(1.2); /* Increase the scale to create a pop-out effect */
-}
-
+z
 .App-body {
   margin: 20px;
   padding: 10px;
@@ -71,13 +61,13 @@ html {
   font-size: 35px;
   font-weight: bold;
   margin-bottom: 10px;
-  color : #917164
+  color : black
 }
 
 .contact-page__description {
   margin-bottom: 20px;
   font-size: 20px;
-  color : #917164
+  color : black
 }
 
 .contact-page__form {
@@ -93,7 +83,7 @@ html {
 .form-group label {
   font-weight: bold;
   font-size: 15px;
-  color : #917164
+  color : black
 }
 
 .form-input {
@@ -101,13 +91,13 @@ html {
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
-  background-color: #689775;
+  background-color: #ffffff;
 }
 
 .submit-button {
   padding: 10px 20px;
-  background-color: #C7493A;
-  color: #fff;
+  background-color: #ffffff;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -116,7 +106,7 @@ html {
 }
 
 .submit-button:hover {
-  background-color: #A33327;
+  background-color: #ffffff;
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
@@ -127,13 +117,13 @@ html {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  background-color: black;
+  background-color: #ffffff;
 }
 
 .about__title {
   font-size: 70px;
   text-align: left;
-  color: #D05353;
+  color: black;
   font-weight: bold;
 }
 

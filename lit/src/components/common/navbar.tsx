@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../LITLOGO.png";
 const NavBar: React.FC = () => {
   return (
-    <nav className="bg-black">
+    <nav className="bg-black border-b-4 border-teal-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 flex">
@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
 
             <a
               href="/"
-              className="nav-link text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-30 font-medium"
             >
               LIT
             </a>
@@ -18,19 +18,19 @@ const NavBar: React.FC = () => {
           <div className="flex items-center">
             <a
               href="/"
-              className="nav-link text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
             >
               Home
             </a>
             <a
               href="/about"
-              className="nav-link text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
             >
               About
             </a>
             <a
               href="/contact"
-              className="nav-link text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
             >
               Contact
             </a>
