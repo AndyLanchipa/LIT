@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
 
             <a
               href="/"
-              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-30 font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md font-medium"
             >
               LIT
             </a>
@@ -18,19 +18,19 @@ const NavBar: React.FC = () => {
           <div className="flex items-center">
             <a
               href="/"
-              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md font-medium"
             >
               Home
             </a>
             <a
               href="/about"
-              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md font-medium"
             >
               About
             </a>
             <a
               href="/contact"
-              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md text-25 font-medium"
+              className="nav-link text-white hover:text-teal-500 px-3 py-2 rounded-md font-medium"
             >
               Contact
             </a>
