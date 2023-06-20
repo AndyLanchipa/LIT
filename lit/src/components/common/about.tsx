@@ -9,7 +9,7 @@ import {ScrollContainer, ScrollPage, Animator, Sticky, batch,Fade,MoveOut, MoveI
 const About: React.FC = () => {
     const LeftZoomInMoveOut = batch(Sticky(40, 50), FadeOut(0,1), FadeIn(0,1), MoveIn(-100,0), MoveOut(0,-800));
     const RightZoomInMoveOut = batch(Sticky(60, 50), FadeOut(0,1), FadeIn(0,1), MoveIn(100, 0), MoveOut(0,-800));
-    const LastZoom = batch(Sticky(),FadeIn(), MoveIn(400, 0));
+    const LastZoom = batch(Sticky(),FadeIn(), MoveIn(0, 400));
     return (
         <div>
             <ScrollContainer>
