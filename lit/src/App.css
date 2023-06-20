@@ -41,7 +41,7 @@ html {
 }
 
 /* Select the links inside the NavBar */
-z
+
 .App-body {
   margin: 20px;
   padding: 10px;
@@ -55,63 +55,13 @@ z
 /*----------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------About Page------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------*/
-
-.about {
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  background-color: #ffffff;
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
 }
-
-.about__title {
-  font-size: 70px;
-  text-align: left;
-  color: black;
-  font-weight: bold;
-}
-
-.about__title span {
-  color: black;
-  padding-right: 40%; /* Adjust the value as needed */
-  display: inline-block;
-  transition: color 0.5s ease-in-out;
-}
-
-.about__title span:hover{
-  color: white;
-}
-.about__title {
-  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
-  background-size: 200% auto;
-  transition: background-position 0.5s ease-in-out;
-}
-
-.about__title:hover {
-  background-position: 100%;
-}
-.about__description {
-  text-align: right;
-  line-height: 1.5;
-  color: #D05353;
-}
-
-.about__description span {
-  color: black;
-  padding-left: 40%; /* Adjust the value as needed */
-  display: inline-block;
-  transition: color 0.5s ease-in-out;
-}
-
-.about__description span:hover{
-  color: white;
-}
-.about__description {
-  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
-  background-size: 200% auto;
-  transition: background-position 0.5s ease-in-out;
-  background-position: 100%;
-}
-
-.about__description:hover {
-  background-position: 0%;
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
 }
