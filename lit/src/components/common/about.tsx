@@ -64,31 +64,4 @@ const About: React.FC = () => {
     );
 };
 
-
-
-
-
-
-
-// const About: React.FC = () => {
-//   return (
-//     <div className="">
-//         <div className="my-10 text-2xl pl-5 flex items-center">
-//             <span className="flex-grow">Unleash the Night: Navigate the Pulse of the Bar Scene</span>
-//             <img style={{ width: '40%', height:'30%' }} className="w-1/2 mr-10 ml-20" src={about1} alt="about1" />
-//         </div>
-//         <div className="my-10 text-2xl pl-5 flex items-center bg-gray-100">
-//             <img style={{ width: '40%', height:'30%' }} className="w-1/2 ml-10 " src={about2} alt="about2"/>
-//             <span className="mx-10 w-1/2">At our core, we're on a mission to unravel the pulse of the night, 
-//             guiding you through the vibrant tapestry of bar culture. 
-//             We empower you with real-time insights, revealing the ebb and flow of the city's hottest spots. 
-//             Say goodbye to aimless wanderings and hello to informed decisions. Discover the heartbeat of the night, 
-//             seamlessly navigating through the crowds to find your perfect haven. Join us on this exhilarating journey, 
-//             where every step is fueled by the anticipation of unforgettable moments and the knowledge that your night will be one for the books. 
-//             Together, let's unlock the secrets of the city's bars and embark on a nightlife adventure like no other.</span>
-//         </div>
-//     </div>
-//   );
-// };
-
 export default About;
