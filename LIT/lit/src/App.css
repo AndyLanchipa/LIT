@@ -1,0 +1,117 @@
+html {
+  background-color: #ffffff;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #EDF5E1;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Select the links inside the NavBar */
+z
+.App-body {
+  margin: 20px;
+  padding: 10px;
+  background-color: lightgray;
+}
+/*------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------Contact Page------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------About Page------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------*/
+
+.about {
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: #ffffff;
+}
+
+.about__title {
+  font-size: 70px;
+  text-align: left;
+  color: black;
+  font-weight: bold;
+}
+
+.about__title span {
+  color: black;
+  padding-right: 40%; /* Adjust the value as needed */
+  display: inline-block;
+  transition: color 0.5s ease-in-out;
+}
+
+.about__title span:hover{
+  color: white;
+}
+.about__title {
+  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.about__title:hover {
+  background-position: 100%;
+}
+.about__description {
+  text-align: right;
+  line-height: 1.5;
+  color: #D05353;
+}
+
+.about__description span {
+  color: black;
+  padding-left: 40%; /* Adjust the value as needed */
+  display: inline-block;
+  transition: color 0.5s ease-in-out;
+}
+
+.about__description span:hover{
+  color: white;
+}
+.about__description {
+  background-image: linear-gradient(90deg, transparent, #D05353, transparent);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease-in-out;
+  background-position: 100%;
+}
+
+.about__description:hover {
+  background-position: 0%;
+}
