@@ -4,9 +4,10 @@ import { Input } from "../components/Input";
 import { Label } from "../components/common/label";
 import { LabelSize } from "../enums/LabelSize";
 import { User } from "../types/user";
-import { Button, Text, Checkbox, Icon, Image, Box } from "@chakra-ui/react";
+import { Button, Text, Checkbox, Icon, Image } from "@chakra-ui/react";
 import { FaGoogle } from "react-icons/fa";
 import stockPhoto from "../loginPhoto.jpg";
+import { GET, POST } from "../services/apiservice";
 
 export const Login = () => {
   const {
@@ -17,12 +18,16 @@ export const Login = () => {
     formState: { errors },
   } = useForm<User>();
   const [user, setUser] = useState<User>();
-  const [loading, setLoading] = useState<boolean>();
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const onSubmit = (data: User) => {
-    console.log("da");
-    setUser(data);
-    // Handle form submission, e.g., send login request
+  const onSubmit = async (data: User) => {
+    GET<User>("/login", {
+      method: "GET",
+      body: data,
+    }).then((res) => {
+      console.log(res.data);
+    });
+    console.log(data);
   };
 
   return (
@@ -70,7 +75,12 @@ export const Login = () => {
                   name="password"
                   render={({ field: { onChange, value } }) => (
                     <div className="w-full">
-                      <Input label="" value={value ?? ""} onChange={onChange} />
+                      <Input
+                        label=""
+                        value={value ?? ""}
+                        onChange={onChange}
+                        type="password"
+                      />
                       {errors.password && (
                         <div className="error">{errors.password.message}</div>
                       )}

@@ -14,11 +14,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose = require("mongoose");
+const user_js_1 = __importDefault(require("../routes/user.js"));
+const login_js_1 = __importDefault(require("../routes/login.js"));
+require("dotenv").config();
 //generate secretKey
 // const crypto = require("crypto");
 // const secretKey = crypto.randomBytes(32).toString("hex");
 // console.log(secretKey);
 const app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.use("/users", user_js_1.default);
+app.use("/login", login_js_1.default);
 const url = "mongodb://127.0.0.1:27017/LIT";
 function connect() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -31,7 +37,6 @@ function connect() {
         }
     });
 }
-app.use(express_1.default.json());
 // app.use(userRoutes);
 // // Register the login route with the app
 // app.use("/login", loginRoute);
