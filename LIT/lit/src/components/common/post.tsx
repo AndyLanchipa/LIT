@@ -15,21 +15,29 @@ export const Post: PostComponent = ({ content, likeCount = 0 }) => {
     setReposts((prevReposts) => prevReposts + 1);
   };
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md mb-4 flex flex-col">
-      <p className="text-gray-800 flex-grow p-5">{content}</p>
-      <div className="flex justify-end">
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white mr-2"
-          onClick={handleLike}
-        >
-          <FontAwesomeIcon icon={faHeart} />({likes})
-        </button>
-        <button
-          className="px-4 py-2 rounded-md bg-green-500 text-white"
-          onClick={handleRepost}
-        >
-          <FontAwesomeIcon icon={faRetweet} />({reposts})
-        </button>
+    <div className="bg-gray-700 p-4 rounded-lg shadow-md mb-4 flex flex-col relative">
+      <div className="flex space-x-2 items-center">
+        <div className="w-10 h-10 bg-white rounded-full"></div>
+        <div className="p-0 m-0 flex flex-col justify-start">
+          <p className="text-white font-bold text-md">username</p>
+
+          <p className="text-slate-400 text-left ">@tag</p>
+        </div>
+      </div>
+      <div className="text-left">
+        <p className="text-white  py-2 text-xl text-left">{content}</p>
+      </div>
+      <div className="flex justify-between space-x-2 ">
+        <p className="text-left text-slate-400">12:00 PM : June 1, 2020</p>
+
+        <div className="space-x-2">
+          <button onClick={handleLike}>
+            <FontAwesomeIcon icon={faHeart} /> {likes}
+          </button>
+          <button onClick={handleRepost}>
+            <FontAwesomeIcon icon={faRetweet} /> {reposts}
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -40,12 +40,11 @@ router.post("/", async (req: any, res: any) => {
       });
 
       // // Redirect the user to a sample page on successful login
-      // res.redirect("/sample-page");
 
       res.status(200).json(omit(["password"], user.toObject()));
     } else {
       // Return an error response if the username or password is invalid
-      res.status(401).json({ message: "Invalid credentials" });
+      res.status(400).json({ message: "Invalid credentials" });
     }
   } catch (error) {
     // Return an error response if an error occurs

@@ -1,4 +1,3 @@
-// UserContext.tsx
 import React, {
   createContext,
   useContext,
@@ -10,8 +9,7 @@ import { User } from "../../types/user";
 
 type UserContextType = {
   user: User | null;
-  token: string | null; // Add the token property
-  setUser: (user: User | null, token: string | null) => void; // Update the setUser function
+  setUser: (user: User | null) => void;
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -29,28 +27,30 @@ type UserProviderProps = {
 };
 
 export function UserProvider({ children }: UserProviderProps) {
-  // Initialize user and token state
+  // Initialize user state
   const [user, setUserState] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(null);
 
-  // The setUser function allows updating both user and token
-  const setUser = (newUser: User | null, newToken: string | null) => {
-    setUserState(newUser);
-    setToken(newToken);
-  };
-
-  // Check for the presence of the token in localStorage or sessionStorage on app load
+  // Retrieve user data from localStorage on component mount
   useEffect(() => {
-    const storedToken =
-      localStorage.getItem("token") || sessionStorage.getItem("token");
-    if (storedToken) {
-      // User is authenticated; handle it accordingly
-      setToken(storedToken);
+    const storedUser = localStorage.getItem("userData");
+    console.log(localStorage.getItem("userData"));
+    if (storedUser) {
+      setUserState(JSON.parse(storedUser));
     }
   }, []);
 
+  // The setUser function allows updating the user and also saves it to localStorage
+  const setUser = (newUser: User | null) => {
+    setUserState(newUser);
+    if (newUser) {
+      localStorage.setItem("userData", JSON.stringify(newUser));
+    } else {
+      localStorage.removeItem("userData");
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ user, token, setUser }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

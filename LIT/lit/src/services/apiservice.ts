@@ -2,7 +2,9 @@ const BASE_URL = "http://localhost:3000";
 
 type ApiResponse<T> = {
   data?: T;
+  headers?: Headers;
   error?: string;
+  ok?: boolean; // Include the 'ok' property
 };
 
 type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
@@ -41,9 +43,18 @@ async function fetchApi<T>(
       ...options.headers,
     },
     body: options.body ? JSON.stringify(options.body) : undefined,
+    credentials: "include", // Include credentials (cookies)
   });
 
-  if (!response.ok) {
+  const apiResponse: ApiResponse<T> = {
+    headers: response.headers,
+  };
+
+  if (response.ok) {
+    const responseData: T = await response.json();
+    apiResponse.data = responseData;
+    apiResponse.ok = true;
+  } else {
     try {
       const errorResponse = await response.json();
       throw new ApiError(errorResponse.error || response.statusText);
@@ -52,10 +63,7 @@ async function fetchApi<T>(
     }
   }
 
-  const responseData: T = await response.json();
-  return {
-    data: responseData,
-  };
+  return apiResponse;
 }
 
 type APIFunction<V> = <T>(
@@ -72,10 +80,13 @@ function createAPIFunction<V>(method: HttpMethod): APIFunction<V> {
       const response = await fetchApi<T>(url, method, options);
       return {
         data: response.data as V,
+        headers: response.headers,
+        ok: response.ok, // Include the 'ok' property
       };
     } catch (error: any) {
       return {
         error: error.message || "An error occurred",
+        ok: false, // Set 'ok' to false in case of an error
       };
     }
   };

@@ -66,4 +66,17 @@ router.post("/signup", async (req: any, res: any) => {
     res.status(500).json({ message: "An error occurred" });
   }
 });
+
+router.post("/follow", (req: any, res: any) => {
+  //in the request we want the body to send the username for which we can do a quikc look up
+  /**
+   * once we have the user we store a username and id into the collection following
+   * where userid is the current user logged in AND
+   * following_id is the user we are following aka body of the request
+   *
+   * on Success send a 200 ok
+   */
+});
+
+router.delete("unfollow", (req: any, res: any) => {});
 export default router;

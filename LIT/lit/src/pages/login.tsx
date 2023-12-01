@@ -8,6 +8,10 @@ import { Button, Text, Checkbox, Icon, Image } from "@chakra-ui/react";
 import { FaGoogle } from "react-icons/fa";
 import stockPhoto from "../loginPhoto.jpg";
 import { GET, POST } from "../services/apiservice";
+import { useUser } from "../components/context/UserContext";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const {
@@ -17,17 +21,45 @@ export const Login = () => {
     getValues,
     formState: { errors },
   } = useForm<User>();
-  const [user, setUser] = useState<User>();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
+  const { setUser } = useUser();
+  function getCookie(name: string) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts?.pop()?.split(";").shift();
+  }
 
   const onSubmit = async (data: User) => {
-    GET<User>("/login", {
-      method: "GET",
+    POST<User>("/login", {
+      method: "POST",
       body: data,
-    }).then((res) => {
-      console.log(res.data);
-    });
-    console.log(data);
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log(res.ok);
+          setLoading(false);
+          setUser(res.data);
+          console.log(res.data);
+
+          navigate("/");
+        } else {
+          toast.error("😭 Invalid login! Try Again!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      })
+      .catch(() => {
+        console.log("error");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -40,7 +72,7 @@ export const Login = () => {
             </div>
             <div>
               <Text className="text-gray-400">
-                Welcome back! Please enter your details.
+                Welcome back! Please enter your details!
               </Text>
             </div>
             <div className="flex flex-col items-start">
@@ -100,13 +132,15 @@ export const Login = () => {
               <Button
                 className="w-full"
                 colorScheme="facebook"
-                onClick={() =>
+                onClick={() => {
+                  setLoading(true);
                   trigger().then((isValid) => {
                     if (isValid) {
                       onSubmit(getValues());
                     }
-                  })
-                }
+                  });
+                }}
+                isLoading={loading}
               >
                 Sign in
               </Button>

@@ -43,12 +43,11 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 secure: true,
             });
             // // Redirect the user to a sample page on successful login
-            // res.redirect("/sample-page");
             res.status(200).json((0, ramda_1.omit)(["password"], user.toObject()));
         }
         else {
             // Return an error response if the username or password is invalid
-            res.status(401).json({ message: "Invalid credentials" });
+            res.status(400).json({ message: "Invalid credentials" });
         }
     }
     catch (error) {
