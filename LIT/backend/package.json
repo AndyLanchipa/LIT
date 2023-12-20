@@ -10,9 +10,11 @@
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.1",
     "connect-history-api-fallback": "^2.0.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "ramda": "^0.29.0",
@@ -28,10 +30,7 @@
     "nodemon": "^2.0.22"
   },
   "scripts": {
-    "build": "rimraf dist && npx tsc",
-    "prestart": "npm run build",
-    "start": "node dist/src/app.js",
-    "preserve": "npm run build",
-    "serve": "concurrently \"npx tsc -w\"  \"nodemon dist/src/app.js\""
+    "start": "node src/app.js",
+    "server": "nodemon src/app.js"
   }
 }

@@ -31,13 +31,14 @@ export const Login = () => {
   }
 
   const onSubmit = async (data: User) => {
-    POST<User>("/login", {
+    console.log(data);
+
+    POST<User>("/api/user/login", {
       method: "POST",
       body: data,
     })
       .then((res) => {
         if (res.ok) {
-          console.log(res.ok);
           setLoading(false);
           setUser(res.data);
           console.log(res.data);

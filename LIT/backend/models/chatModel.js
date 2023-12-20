@@ -1,5 +1,5 @@
-import mongoose, { mongo } from "mongoose";
-
+const mongoose = require("mongoose");
+const User = require("../models/user");
 const chatModel = new mongoose.Schema(
   {
     chatName: { type: String, trim: true },
