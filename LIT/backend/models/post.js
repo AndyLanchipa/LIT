@@ -1,14 +1,13 @@
-import mongoose from "mongoose";
-const User = require("../types/user");
-
-const { Schema } = mongoose;
-
-const postSchema = new Schema({
+const mongoose = require("mongoose");
+const postSchema = new mongoose.Schema({
   content: { type: String, required: true },
   likes: { type: Number, required: true },
   retweet: { type: Number, required: true },
-  creator: { type: User, required: true },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
-const Posts = mongoose.model("Posts", postSchema);
-
-module.exports = Posts;
+const Post = mongoose.model("Post", postSchema);
+module.exports = Post;

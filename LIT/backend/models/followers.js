@@ -1,11 +1,17 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
-
-const followerSchema = new Schema({
-  follower_id: { type: String, required: true },
-  user_id: { type: String, required: true },
+const followerSchema = new mongoose.Schema({
+  follower_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
-const Followers = mongoose.model("Followers", followerSchema);
+const Followers = mongoose.model("Follower", followerSchema);
 module.exports = Followers;

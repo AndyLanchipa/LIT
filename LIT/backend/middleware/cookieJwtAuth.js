@@ -9,7 +9,6 @@ const protect = asyncHandler(async (req, res, next) => {
   // Check for the JWT token in the cookies
   if (req.cookies && req.cookies.token) {
     try {
-      console.log("sasd");
       token = req.cookies.token;
 
       // Decode token id
@@ -18,7 +17,6 @@ const protect = asyncHandler(async (req, res, next) => {
       console.log(decoded);
       // Fetch user from the database and exclude the password
       req.user = await User.findById(decoded.id).select("-password");
-      console.log("here");
 
       next();
     } catch (error) {
